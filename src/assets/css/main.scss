@@ -1,0 +1,73 @@
+@import "~bulma/bulma";
+@import url("https://fonts.googleapis.com/css?family=Permanent+Marker:400");
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono&display=swap');
+
+$background: #020202;
+$primarycolor: #BC0607;
+$light: #F5F2F4;
+$dark: #020202;
+$link: #8892b0;
+
+*, *:before, *:after {
+    box-sizing:  border-box !important;
+}
+
+.permanent-marker {
+    font-family: Permanent Marker, serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+.type-writer {
+    font-family: 'Space Mono', monospace;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+    color: $link;
+}
+a:hover {
+    color: $link;
+}
+strong {
+    color:  inherit;
+}
+body,html {
+    background-color: lighten($dark, 5%);
+    transition: background-color .2s ease, color .2s ease;
+    color: $light;
+    font-family: 'Space Mono', monospace;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+body.light-mode {
+    background-color: lighten($light, 5%);
+    transition: background-color .2s ease, color .2s ease;
+    color: $dark;
+}
+::selection, code[class*="language-"]::selection {
+    background-color: $primarycolor;
+}
+::-webkit-scrollbar {
+    width: 0.5em;
+}
+ 
+::-webkit-scrollbar-thumb {
+  background-color: $primarycolor;
+  border-radius: 10rem;
+}
+
+header.intro {
+    text-align: center;
+    padding: 50px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    max-width: 1440px;
+    margin: 0 auto;
+}
+header.intro h1.intro__title {
+    font-size: 2.5rem;
+    font-weight: 700;
+}

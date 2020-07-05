@@ -11,6 +11,7 @@
       :recovered="recovered"
       :deaths="deaths"
     />
+    <Map />
     <div id="cases">
       <div class="cases__container container">
         <div class="tile is-ancestor">
@@ -60,6 +61,7 @@ import Topwrapper from "@/components/Topwrapper.vue";
 import Totalcases from "@/components/TotalCases.vue";
 import CardCases from "@/components/CardCases.vue";
 import TableCases from "@/components/TableCases.vue";
+import Map from "@/components/Map.vue";
 export default {
   name: "Home",
   data: () => ({
@@ -83,7 +85,8 @@ export default {
     Topwrapper,
     Totalcases,
     CardCases,
-    TableCases
+    TableCases,
+    Map
   }
 };
 </script>

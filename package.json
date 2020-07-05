@@ -18,7 +18,8 @@
     "vue": "^2.6.11",
     "vue-chartjs": "^3.5.0",
     "vue-countup-v2": "^4.0.0",
-    "vue-router": "^3.2.0"
+    "vue-router": "^3.2.0",
+    "vue2-leaflet": "^2.5.2"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.4.0",

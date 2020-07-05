@@ -129,7 +129,7 @@ header.intro h1.intro__title {
     font-size: 2rem;
     font-weight: 700;
 }
-div#card-cases, div#cases {
+div#card-cases, div#cases, div#map-cases {
     padding: 0 0 50px;
 }
 .title {
@@ -158,6 +158,12 @@ div#card-cases, div#cases {
     padding: 15px 30px 20px;
     border-radius: 10px;
 }
+
+#map-cases .card {
+    height: 60vh;
+    margin: unset;
+}
+
 thead th, tbody td {
     width: 150px;
 }

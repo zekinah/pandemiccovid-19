@@ -13,7 +13,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="cases in casesbycountry" :key="cases.updated">
+          <tr v-for="cases in casesbycountry" :key="cases.iso2">
             <td>
               <p class="shrink">
                 <img
@@ -44,7 +44,6 @@ export default {
   }),
   async created() {
     this.casesbycountry = await api.getbyCountries();
-    console.log(this.casesbycountry);
   },
   components: {
     ICountUp

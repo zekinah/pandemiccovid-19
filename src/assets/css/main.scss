@@ -3,10 +3,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Space+Mono&display=swap');
 
-$background: #020202;
-$primarycolor: #BC0607;
+$background: #15192b;
+$primarycolor: #00a8f4;
 $light: #F5F2F4;
-$dark: #020202;
+$dark: #15192b;
 $link: #8892b0;
 
 *, *:before, *:after {
@@ -47,20 +47,78 @@ body.light-mode {
     color: $dark;
 }
 ::selection, code[class*="language-"]::selection {
-    background-color: $primarycolor;
+    background-color: #02d1a1;
 }
 ::-webkit-scrollbar {
     width: 0.5em;
 }
  
 ::-webkit-scrollbar-thumb {
-  background-color: $primarycolor;
-  border-radius: 10rem;
+    background: linear-gradient(45deg,#00a8f4 0%,#02d1a1 100%);
+    border-radius: 10rem;
+}
+
+.switch-wrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    position: absolute;
+    top: 30px;
+    right: 95px;
+}
+.switch-wrapper .moon,
+.switch-wrapper .sun {
+    width: 17px;
+    height: 17px;
+}
+.switch-wrapper .toggle-wrapper {
+    margin: 10px;
+}
+.switch-wrapper .toggle-wrapper #switch {
+    height: 0;
+    width: 0;
+    visibility: hidden;
+    position: absolute;
+}
+.switch-wrapper .toggle-wrapper #switch:checked + label {
+    background: $primarycolor;
+}
+.switch-wrapper .toggle-wrapper #switch:checked + label:after {
+    left: calc(100% - 3px);
+    -webkit-transform: translateX(-100%);
+    transform: translateX(-100%);
+}
+.switch-wrapper .toggle-wrapper label {
+    cursor: pointer;
+    text-indent: -9999px;
+    width: 45px;
+    height: 25px;
+    background: grey;
+    display: block;
+    border-radius: 100px;
+    position: relative;
+}
+.switch-wrapper .toggle-wrapper label:after {
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+    content: "";
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 19px;
+    height: 19px;
+    background: $light;
+    border-radius: 100%;
 }
 
 header.intro {
-    text-align: center;
-    padding: 50px 0;
+    padding: 20px 0;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -68,6 +126,26 @@ header.intro {
     margin: 0 auto;
 }
 header.intro h1.intro__title {
-    font-size: 2.5rem;
+    font-size: 2rem;
     font-weight: 700;
+}
+.overall {
+    text-align: center;
+    padding: 20px 0 50px;
+}
+.overall .overall_cases {
+    font-size: 5rem;
+}
+.card {
+    margin: 10px;
+    border-radius: 10px;
+    background: linear-gradient(80deg,#0030cc 0%,#00a4db 100%);
+}
+.card .title, .card .subtitle {
+    color: $light;
+}
+.card p.title {
+    background: rgba(255,255,255,.1);
+    padding: 15px 30px 20px;
+    border-radius: 10px;
 }

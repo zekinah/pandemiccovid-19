@@ -5,9 +5,12 @@
 
 $background: #15192b;
 $primarycolor: #00a8f4;
+$primaryfont: 'Space Mono', monospace;
 $light: #F5F2F4;
+$default: #A8B2CD;
 $dark: #15192b;
 $link: #8892b0;
+$map: #011019;
 
 *, *:before, *:after {
     box-sizing:  border-box !important;
@@ -47,14 +50,14 @@ body.light-mode {
     color: $dark;
 }
 ::selection, code[class*="language-"]::selection {
-    background-color: #02d1a1;
+    background-color: #8892b0;
 }
 ::-webkit-scrollbar {
     width: 0.5em;
 }
  
 ::-webkit-scrollbar-thumb {
-    background: linear-gradient(45deg,#00a8f4 0%,#02d1a1 100%);
+    background: linear-gradient(45deg,#0030cc 0%,#00a4db 100%);
     border-radius: 10rem;
 }
 
@@ -185,4 +188,66 @@ p.shrink {
 
 p.shrink img {
     width: 25px;
+}
+
+.leaflet-popup-content-wrapper, .leaflet-popup-tip {
+    background: #01101887;
+    border: 0.5px solid #02cda9;
+}
+.leaflet-container {
+    background: $map;
+}
+.leaflet-popup-content p {
+    margin: auto;
+}
+.popup-main {
+    font-family: $primaryfont;
+}
+.popup-main .popup__image {
+    text-align: center;
+}
+.popup-main .popup__image img {
+    outline: 100px solid rgba(2, 205, 169, 0.30);
+    outline-offset: -100px;
+    overflow: hidden;
+}
+.popup-main .popup__content .title {
+    margin: auto;
+    margin-bottom: 10px;
+    padding: unset !important;
+    background: unset;
+    text-align: center;
+    color: #02cda9;
+    font-size: 20px;
+}
+.popup__content p, .popup__content span {
+    font-size: 15px;
+}
+.popup__content {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    color: #ffffff;
+    padding: 5px 10px;
+    margin-top: 10px;
+}
+.box {
+    background: #172a45;
+    color: $default;
+}
+.box .title {
+    color: $default;
+}
+.box .subtitle {
+    color: $default;
+}
+.table {
+    background: #9090902e;
+    color: $default;
+}
+.content table thead td, .content table thead th {
+    color: #02cda9
+}
+
+.table.is-hoverable tbody tr:not(.is-selected):hover {
+    background-color: #fafafa47;
 }

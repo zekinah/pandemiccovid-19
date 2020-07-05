@@ -17,16 +17,45 @@
             fillColor="#02d1a1"
             :fillOpacity="0.35"
             :stroke="false"
-          />
-          <l-marker :lat-lng="withPopup">
+          >
             <l-popup>
-              <div @click="innerClick">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
-                sed pretium nisl, ut sagittis sapien. Sed vel sollicitudin nisi.
-                Donec finibus semper metus id malesuada.
-              </div>
+              <a class="popup-detail">
+                <div class="popup-main">
+                  <div class="popup__image">
+                    <img :src="l.countryInfo.flag" :alt="l.countryInfo.iso3" />
+                  </div>
+                  <div class="popup__content">
+                    <p class="title">{{ l.country }}</p>
+                    <div class="columns">
+                      <div class="column">
+                        <p>Cases: <ICountUp :endVal="parseInt(l.cases)" /></p>
+                      </div>
+                    </div>
+                    <div class="columns">
+                      <div class="column">
+                        <p>Active:</p>
+                        <ICountUp :endVal="parseInt(l.active)" />
+                      </div>
+                      <div class="column">
+                        <p>Critical:</p>
+                        <ICountUp :endVal="parseInt(l.critical)" />
+                      </div>
+                    </div>
+                    <div class="columns">
+                      <div class="column">
+                        <p>Recovered:</p>
+                        <ICountUp :endVal="parseInt(l.recovered)" />
+                      </div>
+                      <div class="column">
+                        <p>Deaths:</p>
+                        <ICountUp :endVal="parseInt(l.deaths)" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </a>
             </l-popup>
-          </l-marker>
+          </l-circle-marker>
         </l-map>
       </div>
     </div>
@@ -35,17 +64,16 @@
 
 <script>
 import api from "@/Api";
-import { latLng } from "leaflet";
-import { LMap, LTileLayer, LCircleMarker, LMarker, LPopup } from "vue2-leaflet";
+import { LMap, LTileLayer, LCircleMarker, LPopup } from "vue2-leaflet";
+import ICountUp from "vue-countup-v2";
 
 export default {
   name: "MapLeaflet",
   data: () => ({
     tileLayerUrl:
       "https://cartocdn_{s}.global.ssl.fastly.net/base-midnight/{z}/{x}/{y}.png",
-    zoom: 2,
-    withPopup: latLng(47.41322, -1.219482),
-    center: [35.000074, 104.999927],
+    zoom: 4,
+    center: [13, 122],
     bounds: null,
     casesbycountry: []
   }),
@@ -63,17 +91,14 @@ export default {
           this.flyTo(coords.latitude, coords.longitude);
         });
       }
-    },
-    innerClick() {
-      alert("Click!");
     }
   },
   components: {
     LMap,
     LTileLayer,
     LCircleMarker,
-    LMarker,
-    LPopup
+    LPopup,
+    ICountUp
   }
 };
 </script>

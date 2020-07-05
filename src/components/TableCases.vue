@@ -1,9 +1,7 @@
 <template>
   <div id="tablecases">
     <div class="tablecases__container table-container">
-      <table
-        class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth"
-      >
+      <table class="table is-narrow is-hoverable is-fullwidth">
         <thead>
           <tr>
             <th>Country</th>
@@ -23,9 +21,9 @@
                 {{ cases.country }}
               </p>
             </td>
-            <td><ICountUp :endVal="cases.cases" /></td>
-            <td><ICountUp :endVal="cases.recovered" /></td>
-            <td><ICountUp :endVal="cases.deaths" /></td>
+            <td><ICountUp :endVal="parseInt(cases.cases)" /></td>
+            <td><ICountUp :endVal="parseInt(cases.recovered)" /></td>
+            <td><ICountUp :endVal="parseInt(cases.deaths)" /></td>
           </tr>
         </tbody>
       </table>

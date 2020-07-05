@@ -129,6 +129,15 @@ header.intro h1.intro__title {
     font-size: 2rem;
     font-weight: 700;
 }
+div#card-cases, div#cases {
+    padding: 0 0 50px;
+}
+.title {
+    font-size: 1.5rem;
+}
+.subtitle {
+    font-size: unset;
+}
 .overall {
     text-align: center;
     padding: 20px 0 50px;
@@ -148,4 +157,26 @@ header.intro h1.intro__title {
     background: rgba(255,255,255,.1);
     padding: 15px 30px 20px;
     border-radius: 10px;
+}
+thead th, tbody td {
+    width: 150px;
+}
+thead th:last-child {
+    width: 150px;
+}
+thead, tbody {
+    display: block;
+}
+tbody {
+    height: 25rem;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+p.shrink {
+    vertical-align: middle;
+}
+
+p.shrink img {
+    width: 25px;
 }

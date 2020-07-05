@@ -17,11 +17,9 @@ export default {
     toggle() {
       if (this.dark) {
         this.dark = false;
-        console.log("OFF");
         this.setlightMode();
       } else {
         this.dark = true;
-        console.log("ON");
         this.setdarkMode();
       }
     },

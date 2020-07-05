@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <router-view />
     <dntoogle />
+    <router-view />
   </div>
 </template>
 

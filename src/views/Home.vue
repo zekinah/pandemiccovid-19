@@ -20,7 +20,7 @@
           <div class="tile is-parent">
             <article class="tile is-child box">
               <div class="content">
-                <p class="title">All Countries</p>
+                <p class="title">All Countries Affected</p>
                 <p class="subtitle">
                   (Covid-19 data sourced from Worldometers, updated every 10
                   minutes)
@@ -36,13 +36,23 @@
               <div class="tile is-parent is-vertical">
                 <article class="tile is-child box">
                   <p class="title">Today Recovered</p>
-                  <ICountUp :endVal="tRecovered" />
+                  <p class="subtitle">(+recoveredperOneMillion)</p>
+                  <p></p>
+                  <p>
+                    <ICountUp :endVal="parseInt(tRecovered)" />
+                    <span class="info">(+{{ perRecovered }})</span>
+                  </p>
                 </article>
               </div>
               <div class="tile is-parent">
                 <article class="tile is-child box">
                   <p class="title">Today Death</p>
-                  <ICountUp :endVal="tDeaths" />
+                  <p class="subtitle">(+deathperOneMillion)</p>
+                  <p></p>
+                  <p>
+                    <ICountUp :endVal="parseInt(tDeaths)" />
+                    <span class="info">(+{{ perDeaths }})</span>
+                  </p>
                 </article>
               </div>
             </div>
@@ -85,8 +95,10 @@ export default {
     critical: 0,
     recovered: 0,
     deaths: 0,
-    todayRecovered: 0,
-    todayDeaths: 0
+    tRecovered: 0,
+    tDeaths: 0,
+    perRecovered: 0,
+    perDeaths: 0
   }),
   async created() {
     this.loading = true;
@@ -101,6 +113,8 @@ export default {
     this.deaths = this.all.deaths;
     this.tRecovered = this.all.todayRecovered;
     this.tDeaths = this.all.todayDeaths;
+    this.perRecovered = this.all.recoveredPerOneMillion;
+    this.perDeaths = this.all.deathsPerOneMillion;
   },
   components: {
     Topwrapper,

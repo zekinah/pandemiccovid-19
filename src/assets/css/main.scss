@@ -11,6 +11,7 @@ $default: #A8B2CD;
 $dark: #15192b;
 $link: #8892b0;
 $map: #011019;
+$lightgreen: #00fffa;
 
 *, *:before, *:after {
     box-sizing:  border-box !important;
@@ -250,9 +251,12 @@ p.shrink img {
     color: $default;
 }
 .content table thead td, .content table thead th {
-    color: #00fffa;
+    color: $lightgreen;
 }
 
 .table.is-hoverable tbody tr:not(.is-selected):hover {
     background-color: #fafafa47;
+}
+span.info {
+    color: $lightgreen;
 }

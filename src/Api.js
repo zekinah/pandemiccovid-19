@@ -21,7 +21,9 @@ export default {
     return data;
   },
   async getDailyCases() {
-    const { data } = await http.get("https://api.covid19api.com/all");
+    const { data } = await http.get(
+      "https://disease.sh/v3/covid-19/historical/all?lastdays=30"
+    );
     return data;
   }
 };

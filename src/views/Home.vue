@@ -45,7 +45,7 @@
             </div>
             <div class="tile is-parent">
               <article class="tile is-child box">
-                <p class="title">Daily New Cases</p>
+                <p class="title">Daily New Cases in 30 Days</p>
                 <p class="subtitle">Aligned with the right column</p>
                 <div class="content">
                   <DailyCases />

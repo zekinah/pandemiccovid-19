@@ -72,7 +72,7 @@ export default {
   data: () => ({
     tileLayerUrl:
       "https://cartocdn_{s}.global.ssl.fastly.net/base-midnight/{z}/{x}/{y}.png",
-    zoom: 4,
+    zoom: 3,
     center: [13, 122],
     bounds: null,
     casesbycountry: []

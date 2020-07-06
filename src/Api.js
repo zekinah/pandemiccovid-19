@@ -19,5 +19,9 @@ export default {
       "https://disease.sh/v3/covid-19/countries?yesterday=true&sort=cases&allowNull=true"
     );
     return data;
+  },
+  async getDailyCases() {
+    const { data } = await http.get("https://api.covid19api.com/all");
+    return data;
   }
 };

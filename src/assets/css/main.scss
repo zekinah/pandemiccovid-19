@@ -239,16 +239,18 @@ p.shrink img {
 }
 .box .title {
     color: $default;
+    font-size: 1.3rem;
 }
 .box .subtitle {
     color: $default;
+    font-size: 0.8rem;
 }
 .table {
     background: #9090902e;
     color: $default;
 }
 .content table thead td, .content table thead th {
-    color: #02cda9
+    color: #00fffa;
 }
 
 .table.is-hoverable tbody tr:not(.is-selected):hover {

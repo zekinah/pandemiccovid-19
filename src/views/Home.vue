@@ -20,8 +20,11 @@
           <div class="tile is-parent">
             <article class="tile is-child box">
               <div class="content">
-                <p class="title">Places</p>
-                <p class="subtitle">With even more content</p>
+                <p class="title">All Countries</p>
+                <p class="subtitle">
+                  (Covid-19 data sourced from Worldometers, updated every 10
+                  minutes)
+                </p>
                 <div class="content">
                   <TableCases />
                 </div>
@@ -32,21 +35,24 @@
             <div class="tile">
               <div class="tile is-parent is-vertical">
                 <article class="tile is-child box">
-                  <p class="title">Fatality by Ages</p>
-                  <p class="subtitle">Top box</p>
+                  <p class="title">Today Recovered</p>
+                  <ICountUp :endVal="tRecovered" />
                 </article>
               </div>
               <div class="tile is-parent">
                 <article class="tile is-child box">
-                  <p class="title">Fatality by Sex</p>
-                  <p class="subtitle">With an image</p>
+                  <p class="title">Today Death</p>
+                  <ICountUp :endVal="tDeaths" />
                 </article>
               </div>
             </div>
             <div class="tile is-parent">
               <article class="tile is-child box">
                 <p class="title">Daily New Cases in 30 Days</p>
-                <p class="subtitle">Aligned with the right column</p>
+                <p class="subtitle">
+                  (Covid-19 data sourced from Johns Hopkins University, updated
+                  every 10 minutes)
+                </p>
                 <div class="content">
                   <DailyCases />
                 </div>
@@ -67,6 +73,8 @@ import CardCases from "@/components/CardCases.vue";
 import TableCases from "@/components/TableCases.vue";
 import DailyCases from "@/components/DailyCases.vue";
 import Map from "@/components/Map.vue";
+import ICountUp from "vue-countup-v2";
+
 export default {
   name: "Home",
   data: () => ({
@@ -76,7 +84,9 @@ export default {
     active: 0,
     critical: 0,
     recovered: 0,
-    deaths: 0
+    deaths: 0,
+    todayRecovered: 0,
+    todayDeaths: 0
   }),
   async created() {
     this.loading = true;
@@ -89,6 +99,8 @@ export default {
     this.critical = this.all.critical;
     this.recovered = this.all.recovered;
     this.deaths = this.all.deaths;
+    this.tRecovered = this.all.todayRecovered;
+    this.tDeaths = this.all.todayDeaths;
   },
   components: {
     Topwrapper,
@@ -96,7 +108,8 @@ export default {
     CardCases,
     TableCases,
     Map,
-    DailyCases
+    DailyCases,
+    ICountUp
   }
 };
 </script>

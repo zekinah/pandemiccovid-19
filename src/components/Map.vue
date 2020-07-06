@@ -72,6 +72,8 @@ export default {
   data: () => ({
     tileLayerUrl:
       "https://cartocdn_{s}.global.ssl.fastly.net/base-midnight/{z}/{x}/{y}.png",
+    tileLightLayerUrl:
+      "https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png",
     zoom: 3,
     center: [13, 122],
     bounds: null,

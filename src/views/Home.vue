@@ -6,7 +6,7 @@
     />
     <div class="overall">
       <h3 class="overall_cases"><ICountUp :endVal="parseInt(totalcases)" /></h3>
-      <h5 class="overall_cases_title">Total Cases World Wide</h5>
+      <h5 class="overall_cases_title">Total Cases</h5>
       <div class="control has-icons-left">
         <div class="select is-small">
           <select v-model="bycountry" @change="viewPerCountry()">
@@ -27,7 +27,7 @@
       :recovered="recovered"
       :deaths="deaths"
     />
-    <Map />
+    <Map :data="country" />
     <div id="cases">
       <div class="cases__container container">
         <div class="tile is-ancestor">
@@ -54,7 +54,6 @@
                 <article class="tile is-child box">
                   <p class="title">Today Recovered</p>
                   <p class="subtitle">(+recoveredperOneMillion)</p>
-                  <p></p>
                   <p>
                     <ICountUp :endVal="parseInt(tRecovered)" />
                     <span class="info">(+{{ perRecovered }})</span>
@@ -65,7 +64,6 @@
                 <article class="tile is-child box">
                   <p class="title">Today Death</p>
                   <p class="subtitle">(+deathperOneMillion)</p>
-                  <p></p>
                   <p>
                     <ICountUp :endVal="parseInt(tDeaths)" />
                     <span class="info">(+{{ perDeaths }})</span>
@@ -117,6 +115,7 @@ export default {
         cases: {}
       }
     },
+    country: {},
     totalcases: 0,
     totalpopulation: 0,
     totalaffected: 0,
@@ -170,6 +169,7 @@ export default {
         this.getAll();
       } else {
         this.history = await api.getDailyCasesByCountry(iso);
+        this.country = await api.getByCountry(iso);
       }
     }
   },

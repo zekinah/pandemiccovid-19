@@ -69,6 +69,7 @@ import ICountUp from "vue-countup-v2";
 
 export default {
   name: "MapLeaflet",
+  props: ["data"],
   data: () => ({
     tileLayerUrl:
       "https://cartocdn_{s}.global.ssl.fastly.net/base-midnight/{z}/{x}/{y}.png",
@@ -89,14 +90,29 @@ export default {
   methods: {
     getUserLocation() {
       if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(({ coords }) => {
-          this.flyTo(coords.latitude, coords.longitude);
+        navigator.geolocation.getCurrentPosition(({ coor }) => {
+          this.flyTo(coor.latitude, coor.longitude);
         });
       }
+    },
+    flyTo(lat, lon) {
+      this.$refs.map.mapObject.flyTo([lat, lon], 5, {
+        animate: true,
+        duration: 2
+      });
     }
   },
-  goTo(lat, lon) {
-    this.$refs.map.mapObject.flyTo([lat, lon]);
+  watch: {
+    data(val) {
+      this.$refs.map.mapObject.flyTo(
+        [val.countryInfo.lat, val.countryInfo.long],
+        5,
+        {
+          animate: true,
+          duration: 2
+        }
+      );
+    }
   },
   components: {
     LMap,

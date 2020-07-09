@@ -39,10 +39,7 @@ import ICountUp from "vue-countup-v2";
 
 export default {
   name: "tablecases",
-  props: {
-    total: Number,
-    affected: Number
-  },
+  props: ["total", "affected"],
   data: () => ({
     casesbycountry: {}
   }),

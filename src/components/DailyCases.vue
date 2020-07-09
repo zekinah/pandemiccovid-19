@@ -51,15 +51,14 @@ export default {
       this.$refs.chart.updateSeries(series);
     },
     data(val) {
-      const casesdate = Object.getOwnPropertyNames(val);
-      const casestotal = Object.values(val);
+      const casesdate = Object.getOwnPropertyNames(val.cases);
+      const casestotal = Object.values(val.cases);
       this.$refs.chart.updateOptions({
         xaxis: {
           type: "datetime",
           categories: casesdate
         }
       });
-
       const series = [
         {
           name: "Daily Total Cases",

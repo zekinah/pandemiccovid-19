@@ -260,3 +260,19 @@ p.shrink img {
 span.info {
     color: $lightgreen;
 }
+.sitefooter {
+    text-align: right;
+    margin: 10px;
+}
+.sitefooter .footer__content {
+    font-size: 10px;
+}
+.sitefooter .footer__content {
+    color: $light;
+}
+.sitefooter .footer__content .dmca {
+    text-align: right;
+}
+body.light-mode .sitefooter .footer__content {
+    color: $dark;
+}

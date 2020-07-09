@@ -20,9 +20,23 @@ export default {
     );
     return data;
   },
+  async getByCountry(iso) {
+    const { data } = await http.get(
+      "https://disease.sh/v3/covid-19/countries/" +
+        iso +
+        "?yesterday=true&strict=true"
+    );
+    return data;
+  },
   async getDailyCases() {
     const { data } = await http.get(
       "https://disease.sh/v3/covid-19/historical/all?lastdays=30"
+    );
+    return data;
+  },
+  async getDailyCasesByCountry(iso) {
+    const { data } = await http.get(
+      "https://disease.sh/v3/covid-19/historical/" + iso + "?lastdays=30"
     );
     return data;
   }

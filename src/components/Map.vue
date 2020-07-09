@@ -95,6 +95,9 @@ export default {
       }
     }
   },
+  goTo(lat, lon) {
+    this.$refs.map.mapObject.flyTo([lat, lon]);
+  },
   components: {
     LMap,
     LTileLayer,

@@ -11,7 +11,7 @@
         <div class="control has-icons-left">
           <div class="select is-info">
             <select v-model="bycountry" @change="viewPerCountry()">
-              <option :value="selectall" selected>All Countries</option>
+              <option :value="selectall">All Countries</option>
               <option
                 v-for="a in bycountries"
                 :key="a.countryInfo._id"

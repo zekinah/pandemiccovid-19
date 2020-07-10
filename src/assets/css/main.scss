@@ -50,6 +50,36 @@ body.light-mode {
     transition: background-color .2s ease, color .2s ease;
     color: $dark;
 }
+body.light-mode .box {
+    background: #ffffff;
+    color: #3d4048;
+}
+body.light-mode .box .title {
+    color: #3d4048;
+    font-size: 1.3rem;
+}
+body.light-mode .box .subtitle {
+    color: #353a46;
+    font-size: 0.8rem;
+}
+body.light-mode span.info {
+    color: #0037ff;
+    margin-left: 8px;
+}
+body.light-mode .table {
+    background: #ffffff;
+    color: #000000;
+}
+body.light-mode .content table thead td, body.light-mode .content table thead th {
+    color: #0037ff;
+}
+body.light-mode .table.is-hoverable tbody tr:not(.is-selected):hover {
+    background-color: #4c51f747;
+}
+body.light-mode .sitefooter .footer__content {
+    color: $dark;
+}
+
 ::selection, code[class*="language-"]::selection {
     background-color: #8892b0;
 }
@@ -274,6 +304,71 @@ span.info {
 .sitefooter .footer__content .dmca {
     text-align: right;
 }
-body.light-mode .sitefooter .footer__content {
-    color: $dark;
+
+/** Responsive */
+@media screen and (max-width: 1024px) {
+    .title {
+        font-size: 1rem;
+    }
+    .box .title {
+        font-size: 1rem;
+    }
+}
+@media screen and (max-width: 768px) {
+    .intro__hello,
+    .intro__tagline {
+        font-size: 2rem;
+    }
+    .section {
+        display: block;
+    }
+    .section__title {
+        text-align: left;
+        width: auto;
+        padding: unset;
+    }
+    .section__content {
+        padding-top: 30px;
+        padding-left: 50px;
+    }
+}
+@media screen and (max-width: 630px) {
+    .overall .overall_cases {
+        font-size: 2.5rem;
+    }
+    .title {
+        font-size: 1.5rem;
+    }
+    .box .title {
+        color: #A8B2CD;
+        font-size: 1.3rem;
+    }
+    .switch-wrapper {
+        top: 20px;
+        right: 0px;
+    }
+}
+@media screen and (max-width: 480px) {
+    header.intro h1.intro__title {
+        font-size: 1.5rem;
+        font-weight: 700;
+    }
+}
+@media screen and (max-width: 360px) {
+    .intro__hello,
+    .intro__tagline {
+        font-size: 1.5rem;
+    }
+    .company .company__job {
+        display: unset;
+    }
+    .footer .footer__content .dmca {
+        text-align: center;
+    }
+}
+@media screen and (max-width: 330px) {
+    .intro__hello,
+    .intro__tagline {
+        font-size: 1.4rem;
+    }
 }

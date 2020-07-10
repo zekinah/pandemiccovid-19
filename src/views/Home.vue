@@ -31,14 +31,19 @@
         </div>
       </div>
     </div>
-    <CardCases :data="cases" />
+    <CardCases
+      :active="active"
+      :critical="critical"
+      :recovered="recovered"
+      :deaths="deaths"
+    />
     <Map :data="country" />
     <TodayCases :data="today" />
-    <div id="cases">
-      <div class="cases__container container">
-        <div class="columns is-desktop">
-          <div class="column">
-            <article class="box">
+    <div id="visual">
+      <div class="visual__container container">
+        <div class="tile is-ancestor">
+          <div class="tile is-parent">
+            <div class="tile is-child box">
               <div class="content">
                 <p class="title">Countries Affected</p>
                 <p class="subtitle">
@@ -52,10 +57,10 @@
                   />
                 </div>
               </div>
-            </article>
+            </div>
           </div>
-          <div class="column">
-            <article class="box">
+          <div class="tile is-6 is-vertical is-parent">
+            <div class="tile is-child box">
               <p class="title">Daily New Cases in 30 Days</p>
               <p class="subtitle">
                 (Covid-19 data sourced from Johns Hopkins University, updated
@@ -64,7 +69,7 @@
               <div class="content">
                 <DailyCasesGraph :data="history.timeline" />
               </div>
-            </article>
+            </div>
           </div>
         </div>
       </div>
@@ -102,7 +107,10 @@ export default {
     totalcases: 0,
     totalpopulation: 0,
     totalaffected: 0,
-    cases: {},
+    active: 0,
+    critical: 0,
+    recovered: 0,
+    deaths: 0,
     today: {}
   }),
   created() {
@@ -112,7 +120,10 @@ export default {
   methods: {
     async getAll() {
       this.all = await api.getAllCases();
-      this.cases = this.all;
+      this.active = this.all.active;
+      this.critical = this.all.critical;
+      this.recovered = this.all.recovered;
+      this.deaths = this.all.deaths;
       this.today = this.all;
     },
     async getCountries() {
@@ -132,7 +143,6 @@ export default {
       this.totalcases = this.all.cases;
       this.totalpopulation = this.all.population;
       this.totalaffected = this.all.affectedCountries;
-      this.cases = this.all;
       this.today = this.all;
     },
     bycountry: async function() {

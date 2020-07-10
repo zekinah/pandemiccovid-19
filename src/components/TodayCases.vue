@@ -7,8 +7,8 @@
             <p class="title">Today Active</p>
             <p class="subtitle">(+casesperOneMillion)</p>
             <p>
-              <icountup :endVal="parseInt(data.casesPerOneMillion)" />
-              <span class="info">(+{{ data.casesPerOneMillion }})</span>
+              <icountup :endVal="parseInt(today.casesPerOneMillion)" />
+              <span class="info">(+{{ today.casesPerOneMillion }})</span>
             </p>
           </article>
         </div>
@@ -17,8 +17,8 @@
             <p class="title">Tested</p>
             <p class="subtitle">(+testsperOneMillion)</p>
             <p>
-              <icountup :endVal="parseInt(data.tests)" />
-              <span class="info">(+{{ data.testsPerOneMillion }})</span>
+              <icountup :endVal="parseInt(today.tests)" />
+              <span class="info">(+{{ today.testsPerOneMillion }})</span>
             </p>
           </article>
         </div>
@@ -27,8 +27,8 @@
             <p class="title">Today Recovered</p>
             <p class="subtitle">(+recoveredperOneMillion)</p>
             <p>
-              <icountup :endVal="parseInt(data.todayRecovered)" />
-              <span class="info">(+{{ data.recoveredPerOneMillion }})</span>
+              <icountup :endVal="parseInt(today.todayRecovered)" />
+              <span class="info">(+{{ today.recoveredPerOneMillion }})</span>
             </p>
           </article>
         </div>
@@ -37,8 +37,8 @@
             <p class="title">Today Death</p>
             <p class="subtitle">(+deathperOneMillion)</p>
             <p>
-              <icountup :endVal="parseInt(data.todayDeaths)" />
-              <span class="info">(+{{ data.deathsPerOneMillion }})</span>
+              <icountup :endVal="parseInt(today.todayDeaths)" />
+              <span class="info">(+{{ today.deathsPerOneMillion }})</span>
             </p>
           </article>
         </div>
@@ -48,10 +48,22 @@
 </template>
 
 <script>
+import api from "@/Api";
 import icountup from "vue-countup-v2";
 export default {
   name: "todaycases",
   props: ["data"],
+  data: () => ({
+    today: {}
+  }),
+  async created() {
+    this.today = await api.getAllCases();
+  },
+  watch: {
+    data(val) {
+      this.today = val;
+    }
+  },
   components: {
     icountup
   }

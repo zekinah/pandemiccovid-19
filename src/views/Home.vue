@@ -31,18 +31,14 @@
         </div>
       </div>
     </div>
-    <CardCases
-      :active="active"
-      :critical="critical"
-      :recovered="recovered"
-      :deaths="deaths"
-    />
+    <CardCases :data="cases" />
     <Map :data="country" />
+    <TodayCases :data="today" />
     <div id="cases">
       <div class="cases__container container">
-        <div class="tile is-ancestor">
-          <div class="tile is-parent">
-            <article class="tile is-child box">
+        <div class="columns is-desktop">
+          <div class="column">
+            <article class="box">
               <div class="content">
                 <p class="title">Countries Affected</p>
                 <p class="subtitle">
@@ -58,41 +54,17 @@
               </div>
             </article>
           </div>
-          <div class="tile is-vertical is-6">
-            <div class="tile">
-              <div class="tile is-parent is-vertical">
-                <article class="tile is-child box">
-                  <p class="title">Today Recovered</p>
-                  <p class="subtitle">(+recoveredperOneMillion)</p>
-                  <p>
-                    <ICountUp :endVal="parseInt(tRecovered)" />
-                    <span class="info">(+{{ perRecovered }})</span>
-                  </p>
-                </article>
+          <div class="column">
+            <article class="box">
+              <p class="title">Daily New Cases in 30 Days</p>
+              <p class="subtitle">
+                (Covid-19 data sourced from Johns Hopkins University, updated
+                every 10 minutes)
+              </p>
+              <div class="content">
+                <DailyCasesGraph :data="history.timeline" />
               </div>
-              <div class="tile is-parent">
-                <article class="tile is-child box">
-                  <p class="title">Today Death</p>
-                  <p class="subtitle">(+deathperOneMillion)</p>
-                  <p>
-                    <ICountUp :endVal="parseInt(tDeaths)" />
-                    <span class="info">(+{{ perDeaths }})</span>
-                  </p>
-                </article>
-              </div>
-            </div>
-            <div class="tile is-parent">
-              <article class="tile is-child box">
-                <p class="title">Daily New Cases in 30 Days</p>
-                <p class="subtitle">
-                  (Covid-19 data sourced from Johns Hopkins University, updated
-                  every 10 minutes)
-                </p>
-                <div class="content">
-                  <DailyCases :data="history.timeline" />
-                </div>
-              </article>
-            </div>
+            </article>
           </div>
         </div>
       </div>
@@ -105,10 +77,11 @@
 import api from "@/Api";
 import Topwrapper from "@/components/Topwrapper.vue";
 import CardCases from "@/components/CardCases.vue";
-import TableCases from "@/components/TableCases.vue";
-import DailyCases from "@/components/DailyCases.vue";
-import SiteFooter from "@/components/SiteFooter.vue";
 import Map from "@/components/Map.vue";
+import TodayCases from "@/components/TodayCases.vue";
+import TableCases from "@/components/TableCases.vue";
+import DailyCasesGraph from "@/components/DailyCasesGraph.vue";
+import SiteFooter from "@/components/SiteFooter.vue";
 import ICountUp from "vue-countup-v2";
 
 export default {
@@ -129,15 +102,8 @@ export default {
     totalcases: 0,
     totalpopulation: 0,
     totalaffected: 0,
-    active: 0,
-    critical: 0,
-    recovered: 0,
-    deaths: 0,
-    tRecovered: 0,
-    tDeaths: 0,
-    perRecovered: 0,
-    perDeaths: 0,
-    selectedGen: null
+    cases: {},
+    today: {}
   }),
   created() {
     this.getAll();
@@ -146,6 +112,8 @@ export default {
   methods: {
     async getAll() {
       this.all = await api.getAllCases();
+      this.cases = this.all;
+      this.today = this.all;
     },
     async getCountries() {
       this.bycountries = await api.getbyCountries();
@@ -164,19 +132,13 @@ export default {
       this.totalcases = this.all.cases;
       this.totalpopulation = this.all.population;
       this.totalaffected = this.all.affectedCountries;
-      this.active = this.all.active;
-      this.critical = this.all.critical;
-      this.recovered = this.all.recovered;
-      this.deaths = this.all.deaths;
-      this.tRecovered = this.all.todayRecovered;
-      this.tDeaths = this.all.todayDeaths;
-      this.perRecovered = this.all.recoveredPerOneMillion;
-      this.perDeaths = this.all.deathsPerOneMillion;
+      this.cases = this.all;
+      this.today = this.all;
     },
     bycountry: async function() {
       let iso = this.bycountry.countryInfo.iso2;
       if (iso == "all") {
-        // this.history = await api.getDailyCases();
+        this.history.timeline = await api.getDailyCases();
         this.getAll();
       } else {
         this.history = await api.getDailyCasesByCountry(iso);
@@ -187,10 +149,11 @@ export default {
   components: {
     Topwrapper,
     CardCases,
-    TableCases,
-    SiteFooter,
     Map,
-    DailyCases,
+    TodayCases,
+    TableCases,
+    DailyCasesGraph,
+    SiteFooter,
     ICountUp
   }
 };

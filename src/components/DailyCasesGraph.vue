@@ -14,7 +14,7 @@
 import api from "@/Api";
 import VueApexCharts from "vue-apexcharts";
 export default {
-  name: "daily",
+  name: "dailycasesgraph",
   props: ["data"],
   data() {
     return {

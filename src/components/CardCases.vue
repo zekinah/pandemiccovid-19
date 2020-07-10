@@ -6,7 +6,7 @@
           <div class="card">
             <div class="card-content">
               <p class="subtitle is-6">Active</p>
-              <p class="title"><ICountUp :endVal="active" /></p>
+              <p class="title"><icountup :endVal="parseInt(data.active)" /></p>
             </div>
           </div>
         </div>
@@ -14,7 +14,9 @@
           <div class="card">
             <div class="card-content">
               <p class="subtitle is-6">Critical</p>
-              <p class="title"><ICountUp :endVal="critical" /></p>
+              <p class="title">
+                <icountup :endVal="parseInt(data.critical)" />
+              </p>
             </div>
           </div>
         </div>
@@ -22,7 +24,9 @@
           <div class="card">
             <div class="card-content">
               <p class="subtitle is-6">Recovered</p>
-              <p class="title"><ICountUp :endVal="recovered" /></p>
+              <p class="title">
+                <icountup :endVal="parseInt(data.recovered)" />
+              </p>
             </div>
           </div>
         </div>
@@ -30,7 +34,7 @@
           <div class="card">
             <div class="card-content">
               <p class="subtitle is-6">Deaths</p>
-              <p class="title"><ICountUp :endVal="deaths" /></p>
+              <p class="title"><icountup :endVal="parseInt(data.deaths)" /></p>
             </div>
           </div>
         </div>
@@ -40,17 +44,12 @@
 </template>
 
 <script>
-import ICountUp from "vue-countup-v2";
+import icountup from "vue-countup-v2";
 export default {
   name: "cardcases",
-  props: {
-    active: Number,
-    critical: Number,
-    recovered: Number,
-    deaths: Number
-  },
+  props: ["data"],
   components: {
-    ICountUp
+    icountup
   }
 };
 </script>

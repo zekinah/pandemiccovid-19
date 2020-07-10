@@ -7,8 +7,8 @@
             <p class="title">Today Active</p>
             <p class="subtitle">(+casesperOneMillion)</p>
             <p>
-              <icountup :endVal="parseInt(today.casesPerOneMillion)" />
-              <span class="info">(+{{ today.casesPerOneMillion }})</span>
+              {{ Number(dataT.casesPerOneMillion).toLocaleString() }}
+              <span class="info">(+{{ dataT.casesPerOneMillion }})</span>
             </p>
           </article>
         </div>
@@ -17,8 +17,8 @@
             <p class="title">Tested</p>
             <p class="subtitle">(+testsperOneMillion)</p>
             <p>
-              <icountup :endVal="parseInt(today.tests)" />
-              <span class="info">(+{{ today.testsPerOneMillion }})</span>
+              {{ Number(dataT.tests).toLocaleString() }}
+              <span class="info">(+{{ dataT.testsPerOneMillion }})</span>
             </p>
           </article>
         </div>
@@ -27,8 +27,8 @@
             <p class="title">Today Recovered</p>
             <p class="subtitle">(+recoveredperOneMillion)</p>
             <p>
-              <icountup :endVal="parseInt(today.todayRecovered)" />
-              <span class="info">(+{{ today.recoveredPerOneMillion }})</span>
+              {{ Number(dataT.todayRecovered).toLocaleString() }}
+              <span class="info">(+{{ dataT.recoveredPerOneMillion }})</span>
             </p>
           </article>
         </div>
@@ -37,8 +37,8 @@
             <p class="title">Today Death</p>
             <p class="subtitle">(+deathperOneMillion)</p>
             <p>
-              <icountup :endVal="parseInt(today.todayDeaths)" />
-              <span class="info">(+{{ today.deathsPerOneMillion }})</span>
+              {{ Number(dataT.todayDeaths).toLocaleString() }}
+              <span class="info">(+{{ dataT.deathsPerOneMillion }})</span>
             </p>
           </article>
         </div>
@@ -49,23 +49,24 @@
 
 <script>
 import api from "@/Api";
-import icountup from "vue-countup-v2";
+// import ICountUp from "vue-countup-v2";
 export default {
   name: "todaycases",
   props: ["data"],
   data: () => ({
-    today: {}
+    dataT: []
   }),
   async created() {
-    this.today = await api.getAllCases();
+    this.dataT = await api.getAllCases();
+    console.log(this.dataT);
   },
   watch: {
     data(val) {
-      this.today = val;
+      this.dataT = val;
     }
   },
   components: {
-    icountup
+    // ICountUp
   }
 };
 </script>

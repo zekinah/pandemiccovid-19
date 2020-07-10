@@ -38,7 +38,7 @@
       :deaths="deaths"
     />
     <Map :data="country" />
-    <TodayCases :data="today" />
+    <TodayCases :data="todaydata" />
     <div id="visual">
       <div class="visual__container container">
         <div class="tile is-ancestor">
@@ -111,7 +111,7 @@ export default {
     critical: 0,
     recovered: 0,
     deaths: 0,
-    today: {}
+    todaydata: {}
   }),
   created() {
     this.getAll();
@@ -120,11 +120,6 @@ export default {
   methods: {
     async getAll() {
       this.all = await api.getAllCases();
-      this.active = this.all.active;
-      this.critical = this.all.critical;
-      this.recovered = this.all.recovered;
-      this.deaths = this.all.deaths;
-      this.today = this.all;
     },
     async getCountries() {
       this.bycountries = await api.getbyCountries();
@@ -140,10 +135,14 @@ export default {
   },
   watch: {
     all: function() {
+      this.todaydata = this.all;
       this.totalcases = this.all.cases;
       this.totalpopulation = this.all.population;
       this.totalaffected = this.all.affectedCountries;
-      this.today = this.all;
+      this.active = this.all.active;
+      this.critical = this.all.critical;
+      this.recovered = this.all.recovered;
+      this.deaths = this.all.deaths;
     },
     bycountry: async function() {
       let iso = this.bycountry.countryInfo.iso2;
@@ -153,6 +152,7 @@ export default {
       } else {
         this.history = await api.getDailyCasesByCountry(iso);
         this.country = await api.getByCountry(iso);
+        this.todaydata = this.country;
       }
     }
   },

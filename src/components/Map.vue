@@ -86,7 +86,6 @@ export default {
   mounted() {
     this.getUserLocation();
   },
-  computed: {},
   methods: {
     getUserLocation() {
       if (navigator.geolocation) {

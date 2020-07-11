@@ -79,19 +79,16 @@ body.light-mode .table.is-hoverable tbody tr:not(.is-selected):hover {
 body.light-mode .sitefooter .footer__content {
     color: $dark;
 }
-
 ::selection, code[class*="language-"]::selection {
     background-color: #8892b0;
 }
 ::-webkit-scrollbar {
     width: 0.5em;
 }
- 
 ::-webkit-scrollbar-thumb {
     background: linear-gradient(45deg,#0030cc 0%,#00a4db 100%);
     border-radius: 10rem;
 }
-
 .switch-wrapper {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -150,7 +147,6 @@ body.light-mode .sitefooter .footer__content {
     background: $light;
     border-radius: 100%;
 }
-
 header.intro {
     padding: 20px 0;
     display: flex;
@@ -195,12 +191,10 @@ div#card-cases, div#cases, div#map-cases {
     padding: 15px 30px 20px;
     border-radius: 10px;
 }
-
 #map-cases .card {
     height: 60vh;
     margin: unset;
 }
-
 thead th, tbody td {
     width: 150px;
 }
@@ -215,15 +209,12 @@ tbody {
     overflow-y: auto;
     overflow-x: hidden;
 }
-
 p.shrink {
     vertical-align: middle;
 }
-
 p.shrink img {
     width: 25px;
 }
-
 .leaflet-popup-content-wrapper, .leaflet-popup-tip {
     background: #01101887;
     border: 0.5px solid #02cda9;
@@ -304,7 +295,6 @@ span.info {
 .sitefooter .footer__content .dmca {
     text-align: right;
 }
-
 /** Responsive */
 @media screen and (max-width: 1024px) {
     .title {

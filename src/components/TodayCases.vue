@@ -34,7 +34,7 @@
         </div>
         <div class="column">
           <article class="box">
-            <p class="title">Today Death</p>
+            <p class="title">Today Deaths</p>
             <p class="subtitle">(+deathperOneMillion)</p>
             <p>
               {{ Number(dataT.todayDeaths).toLocaleString() }}

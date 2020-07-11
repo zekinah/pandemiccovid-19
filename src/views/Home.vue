@@ -1,9 +1,6 @@
 <template>
   <div class="home">
-    <Topwrapper
-      title="Covid-19 Tracker"
-      tagline="Realtime tracker of a pandemic"
-    />
+    <Topwrapper title="Covid-19 Tracker" tagline="Tracker of a pandemic" />
     <div class="overall">
       <h3 class="overall_cases"><ICountUp :endVal="parseInt(totalcases)" /></h3>
       <h5 class="overall_cases_title">Total Cases</h5>

@@ -4,6 +4,9 @@ import "./registerServiceWorker";
 import router from "./router";
 import { Icon } from "leaflet";
 import "leaflet/dist/leaflet.css";
+import VueMeta from "vue-meta";
+
+Vue.use(VueMeta);
 
 Vue.config.productionTip = false;
 

@@ -1,6 +1,6 @@
 
 <div align="center">
-  <img src="https://raw.githubusercontent.com/zekinah/iamzekinah/master/public/img/unofficiallogo.png" width="100" alt="site-logo"/>
+  <img src="https://raw.githubusercontent.com/zekinah/pandemiccovid-19/master/public/img/unofficiallogo.png" width="100" alt="site-logo"/>
 </div>
 <h1 align="center">
   pandemiccovid19.netlify.com

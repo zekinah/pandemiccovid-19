@@ -58,7 +58,6 @@ export default {
   }),
   async created() {
     this.dataT = await api.getAllCases();
-    console.log(this.dataT);
   },
   watch: {
     data(val) {

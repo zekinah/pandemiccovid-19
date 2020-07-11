@@ -13,7 +13,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="cases in casesbycountry" :key="cases.iso2">
+          <tr ref="tablecase" v-for="cases in casesbycountry" :key="cases.iso2">
             <td>
               <p class="shrink">
                 <img
@@ -34,18 +34,10 @@
 </template>
 
 <script>
-import api from "@/Api";
 import ICountUp from "vue-countup-v2";
-
 export default {
   name: "tablecases",
-  props: ["total", "affected"],
-  data: () => ({
-    casesbycountry: {}
-  }),
-  async created() {
-    this.casesbycountry = await api.getbyCountries();
-  },
+  props: ["casesbycountry", "total", "affected"],
   components: {
     ICountUp
   }

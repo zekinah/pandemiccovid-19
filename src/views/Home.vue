@@ -52,6 +52,7 @@
                 </p>
                 <div class="content">
                   <TableCases
+                    :casesbycountry="tablecountry"
                     :total="totalpopulation"
                     :affected="totalaffected"
                   />
@@ -104,6 +105,7 @@ export default {
       timeline: {}
     },
     country: {},
+    tablecountry: {},
     totalcases: 0,
     totalpopulation: 0,
     totalaffected: 0,
@@ -123,6 +125,8 @@ export default {
     },
     async getCountries() {
       this.bycountries = await api.getbyCountries();
+      this.tablecountry = {};
+      this.tablecountry = this.bycountries;
     },
     async viewPerCountry() {
       let iso = this.bycountry.countryInfo.iso2;
@@ -149,9 +153,12 @@ export default {
       if (iso == "all") {
         this.history.timeline = await api.getDailyCases();
         this.getAll();
+        this.getCountries();
       } else {
         this.history = await api.getDailyCasesByCountry(iso);
         this.country = await api.getByCountry(iso);
+        this.tablecountry = {};
+        this.tablecountry[0] = this.country;
         this.todaydata = this.country;
       }
     }

@@ -1,4 +1,19 @@
 
+<div align="center">
+  <img src="https://raw.githubusercontent.com/zekinah/iamzekinah/master/public/img/unofficiallogo.png" width="100" alt="site-logo"/>
+</div>
+<h1 align="center">
+  pandemiccovid19.netlify.com
+</h1>
+<p align="center">
+  <a href="https://app.netlify.com/sites/pandemiccovid19/deploys" target="_blank">
+    <img src="https://api.netlify.com/api/v1/badges/c778ec93-a2fd-4653-ad09-e56471b075d2/deploy-status" alt="Netlify Status" />
+  </a>
+  <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/zekinah/pandemiccovid-19">
+  <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/zekinah/pandemiccovid-19">
+  <img alt="GitHub code size in bytes" src="https://img.shields.io/github/languages/code-size/zekinah/pandemiccovid-19">
+</p>
+
 ![demo](https://raw.githubusercontent.com/zekinah/pandemiccovid-19/master/public/img/preview.png)
 
 ## 📐 Project setup

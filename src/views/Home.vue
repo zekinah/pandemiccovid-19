@@ -113,6 +113,7 @@ export default {
     critical: 0,
     recovered: 0,
     deaths: 0,
+    carddata: {},
     todaydata: {}
   }),
   created() {
@@ -125,7 +126,7 @@ export default {
     },
     async getCountries() {
       this.bycountries = await api.getbyCountries();
-      this.tablecountry = {};
+      this.tablecountry = {}; //Pre reset
       this.tablecountry = this.bycountries;
     },
     async viewPerCountry() {
@@ -139,6 +140,7 @@ export default {
   },
   watch: {
     all: function() {
+      this.carddata = this.all;
       this.todaydata = this.all;
       this.totalcases = this.all.cases;
       this.totalpopulation = this.all.population;
@@ -157,9 +159,10 @@ export default {
       } else {
         this.history = await api.getDailyCasesByCountry(iso);
         this.country = await api.getByCountry(iso);
-        this.tablecountry = {};
-        this.tablecountry[0] = this.country;
+        this.carddata = this.country;
         this.todaydata = this.country;
+        this.tablecountry = {}; //Pre Reset
+        this.tablecountry[0] = this.country;
       }
     }
   },

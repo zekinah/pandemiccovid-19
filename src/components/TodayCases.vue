@@ -4,7 +4,7 @@
       <div class="columns is-desktop">
         <div class="column">
           <article class="box">
-            <p class="title">Today Cases</p>
+            <p class="title">Today Active</p>
             <p class="subtitle">(+casesperOneMillion)</p>
             <p>
               {{ Number(dataT.todayCases).toLocaleString() }}

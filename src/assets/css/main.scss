@@ -5,6 +5,7 @@
 
 $background: #15192b;
 $primarycolor: #00a8f4;
+$primarycolorklight: #0037ff;
 $primaryfont: 'Space Mono', monospace;
 $light: #F5F2F4;
 $default: #A8B2CD;
@@ -12,6 +13,7 @@ $dark: #15192b;
 $link: #8892b0;
 $map: #011019;
 $lightgreen: #00fffa;
+$gradient: linear-gradient(45deg,$primarycolorklight,$primarycolor);
 
 *, *:before, *:after {
     box-sizing:  border-box !important;
@@ -63,7 +65,7 @@ body.light-mode .box .subtitle {
     font-size: 0.8rem;
 }
 body.light-mode span.info {
-    color: #0037ff;
+    color: $primarycolorklight;
     margin-left: 8px;
 }
 body.light-mode .table {
@@ -71,13 +73,17 @@ body.light-mode .table {
     color: #000000;
 }
 body.light-mode .content table thead td, body.light-mode .content table thead th {
-    color: #0037ff;
+    color: $primarycolorklight;
 }
 body.light-mode .table.is-hoverable tbody tr:not(.is-selected):hover {
     background-color: #4c51f747;
 }
 body.light-mode .sitefooter .footer__content {
     color: $dark;
+}
+body.light-mode article.box:after {
+    height: 4px;
+    background: $gradient;
 }
 ::selection, code[class*="language-"]::selection {
     background-color: #8892b0;
@@ -86,7 +92,7 @@ body.light-mode .sitefooter .footer__content {
     width: 0.5em;
 }
 ::-webkit-scrollbar-thumb {
-    background: linear-gradient(45deg,#0030cc 0%,#00a4db 100%);
+    background: $gradient;
     border-radius: 10rem;
 }
 .switch-wrapper {
@@ -255,6 +261,9 @@ p.shrink img {
     padding: 5px 10px;
     margin-top: 10px;
 }
+.today-cases__container.container {
+    margin-bottom: 2rem;
+}
 .box {
     background: #172a45;
     color: $default;
@@ -267,6 +276,26 @@ p.shrink img {
 .box .subtitle {
     color: $default;
     font-size: 0.8rem;
+}
+article.box {
+    position: relative
+}
+
+article.box:hover:after {
+    width: 94%;
+    border-radius: 0 0 20px 20px;
+}
+article.box:after {
+    content: '';
+    position: absolute;
+    width: 170px;
+    height: 3px;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    border-radius: 45px;
+    background: #00fffa;
+    transition: .2s ease, color .2s ease;
 }
 .table {
     background: #9090902e;

@@ -1,0 +1,14 @@
+{
+    "name": "Pandemic Covid19 Tracker",
+    "short_name": "Pandemic Covid19 Tracker",
+    "icons": [
+        {
+            "src": "/android-chrome-144x144.png",
+            "sizes": "144x144",
+            "type": "image/png"
+        }
+    ],
+    "theme_color": "#1d233c",
+    "background_color": "#1d233c",
+    "display": "standalone"
+}

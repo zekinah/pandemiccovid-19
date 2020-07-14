@@ -6,6 +6,6 @@ module.exports = {
     themeColor: "#15192b",
     msTileColor: "#15192b",
     appleMobileWebAppCapable: "yes",
-    appleMobileWebAppStatusBarStyle: "black"
+    appleMobileWebAppStatusBarStyle: "#15192b"
   }
 };

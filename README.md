@@ -12,6 +12,7 @@
   <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/zekinah/pandemiccovid-19">
   <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/zekinah/pandemiccovid-19">
   <img alt="GitHub code size in bytes" src="https://img.shields.io/github/languages/code-size/zekinah/pandemiccovid-19">
+  <img alt="License" src="https://img.shields.io/badge/license-MIT-blue.svg" >
 </p>
 
 ![demo](https://raw.githubusercontent.com/zekinah/pandemiccovid-19/master/public/img/preview.png)
@@ -46,6 +47,9 @@ npm run lint
 
 ## 😇 Acknowledgments
 * Hat tip for the third party libraries that are used into this site.
+
+## ❤️ Find this repository useful?
+Support it by joining [stargazers](https://github.com/zekinah/pandemiccovid-19/stargazers) for this repository and [follow](https://github.com/zekinah/) me for my next creations! 
 
 ## ℹ️ Forking this project
 Feel free to fork this repo. If you do, please add attribution or just give me proper credit by linking back to the repo,

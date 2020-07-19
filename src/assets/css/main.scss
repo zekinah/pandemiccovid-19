@@ -325,6 +325,26 @@ span.info {
 .sitefooter .footer__content .dmca {
     text-align: right;
 }
+.blink {
+    animation:blinkingText 1.2s infinite;
+}
+@keyframes blinkingText{
+    0%{     color: #F5F2F4;    }
+    49%{    color: #F5F2F4; }
+    60%{    color: transparent; }
+    99%{    color:transparent;  }
+    100%{   color: #F5F2F4;    }
+}
+body.light-mode .blink {
+    animation:blinkingLightText 1.2s infinite;
+}
+@keyframes blinkingLightText{
+    0%{     color: #19242F;    }
+    49%{    color: #19242F; }
+    60%{    color: transparent; }
+    99%{    color:transparent;  }
+    100%{   color: #19242F;    }
+}
 /** Responsive */
 @media screen and (max-width: 1024px) {
     .title {

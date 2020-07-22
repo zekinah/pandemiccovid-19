@@ -31,7 +31,7 @@ $gradient: linear-gradient(45deg,$primarycolorklight,$primarycolor);
 }
 
 a {
-    color: $link;
+    color: $lightgreen;
 }
 a:hover {
     color: $link;
@@ -81,9 +81,12 @@ body.light-mode .table.is-hoverable tbody tr:not(.is-selected):hover {
 body.light-mode .sitefooter .footer__content {
     color: $dark;
 }
-body.light-mode article.box:after {
+article.box:after {
     height: 4px;
     background: $gradient;
+}
+body.light-mode a {
+    color: $primarycolorklight;
 }
 ::selection, code[class*="language-"]::selection {
     background-color: #8892b0;
@@ -107,7 +110,7 @@ body.light-mode article.box:after {
     align-items: center;
     position: absolute;
     top: 30px;
-    right: 95px;
+    right: 145px;
 }
 .switch-wrapper .moon,
 .switch-wrapper .sun {
@@ -153,8 +156,28 @@ body.light-mode article.box:after {
     background: $light;
     border-radius: 100%;
 }
+.icon {
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+}
+.icon-info {
+    background: url("../icon/icon-info.svg");
+    background-size: 100%;
+}
+.about-popup {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 40px;
+    right: 120px;
+}
+body.light-mode .icon-info {
+    background: url("../icon/icon-info-light.svg") !important;
+}
 header.intro {
-    padding: 20px 30px;
+    padding: 25px 20px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -312,6 +335,19 @@ span.info {
     color: $lightgreen;
     margin-left: 8px;
 }
+.modal-head {
+    align-items: center;
+    display: flex;
+    flex-shrink: 0;
+    justify-content: flex-start;
+    position: relative;
+}
+.modal-title {
+    flex-grow: 1;
+    flex-shrink: 0;
+    font-size: 1.5rem;
+    line-height: 1;
+}
 .sitefooter {
     text-align: right;
     margin: 10px;
@@ -385,8 +421,13 @@ body.light-mode .blink {
     }
     .switch-wrapper {
         top: 20px;
-        right: 0px;
+        right: 32px;
     }
+    .about-popup {
+        top: 30px;
+        right: 10px;
+    }
+
 }
 @media screen and (max-width: 480px) {
     header.intro h1.intro__title {

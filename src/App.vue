@@ -1,16 +1,19 @@
 <template>
   <div id="app">
     <dntoogle />
+    <About />
     <router-view />
   </div>
 </template>
 
 <script>
 import dntoogle from "./components/Dntoogle.vue";
+import About from "./components/About.vue";
 export default {
   name: "app",
   components: {
-    dntoogle
+    dntoogle,
+    About
   },
   metaInfo() {
     return {

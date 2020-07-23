@@ -81,7 +81,7 @@ body.light-mode .table.is-hoverable tbody tr:not(.is-selected):hover {
 body.light-mode .sitefooter .footer__content {
     color: $dark;
 }
-article.box:after {
+body.light-mode article.box:after {
     height: 4px;
     background: $gradient;
 }

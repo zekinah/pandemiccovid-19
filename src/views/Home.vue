@@ -59,7 +59,7 @@
           </div>
           <div class="tile is-6 is-vertical is-parent">
             <div class="tile is-child box">
-              <p class="title">Daily New Cases in 30 Days</p>
+              <p class="title">Records in 30 Days</p>
               <p class="subtitle">
                 (Covid-19 data sourced from Johns Hopkins University, updated
                 every 10 minutes)

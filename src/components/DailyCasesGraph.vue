@@ -35,7 +35,19 @@ export default {
     dailyCases(val) {
       const casesdate = Object.getOwnPropertyNames(val.cases);
       const casestotal = Object.values(val.cases);
+      const deathstotal = Object.values(val.deaths);
+      const recoveredtotal = Object.values(val.recovered);
       this.$refs.chart.updateOptions({
+        dataLabels: {
+          enabled: false
+        },
+        stroke: {
+          curve: "smooth"
+        },
+        tooltip: {
+          theme: "dark"
+        },
+        colors: ["#00a4db", "#ff2323", "#00897B"],
         xaxis: {
           type: "datetime",
           categories: casesdate
@@ -44,8 +56,16 @@ export default {
 
       const series = [
         {
-          name: "Daily Total Cases",
+          name: "Confirmed",
           data: casestotal
+        },
+        {
+          name: "Deceased",
+          data: deathstotal
+        },
+        {
+          name: "Recovered",
+          data: recoveredtotal
         }
       ];
       this.$refs.chart.updateSeries(series);
@@ -53,6 +73,8 @@ export default {
     data(val) {
       const casesdate = Object.getOwnPropertyNames(val.cases);
       const casestotal = Object.values(val.cases);
+      const deathstotal = Object.values(val.deaths);
+      const recoveredtotal = Object.values(val.recovered);
       this.$refs.chart.updateOptions({
         xaxis: {
           type: "datetime",
@@ -61,8 +83,16 @@ export default {
       });
       const series = [
         {
-          name: "Daily Total Cases",
+          name: "Confirmed",
           data: casestotal
+        },
+        {
+          name: "Deceased",
+          data: deathstotal
+        },
+        {
+          name: "Recovered",
+          data: recoveredtotal
         }
       ];
       this.$refs.chart.updateSeries(series);

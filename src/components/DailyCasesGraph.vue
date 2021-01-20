@@ -48,9 +48,28 @@ export default {
           theme: "dark"
         },
         colors: ["#00a4db", "#ff2323", "#00897B"],
+        legend: {
+          fontSize: "14px",
+          fontFamily: "Space Mono",
+          labels: {
+            colors: "#A8B2CD"
+          }
+        },
         xaxis: {
           type: "datetime",
-          categories: casesdate
+          categories: casesdate,
+          labels: {
+            style: {
+              colors: "#A8B2CD"
+            }
+          }
+        },
+        yaxis: {
+          labels: {
+            style: {
+              colors: "#A8B2CD"
+            }
+          }
         }
       });
 

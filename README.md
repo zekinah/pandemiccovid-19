@@ -13,6 +13,9 @@
   <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/zekinah/pandemiccovid-19">
   <img alt="GitHub code size in bytes" src="https://img.shields.io/github/languages/code-size/zekinah/pandemiccovid-19">
   <img alt="License" src="https://img.shields.io/badge/license-MIT-blue.svg" >
+  <a href="https://github.com/soroushchehresa/awesome-coronavirus" target="_blank">
+    <img src="https://awesome.re/mentioned-badge-flat.svg" alt="Mentioned in Awesome Coronavirus" />
+  </a>
 </p>
 
 ![demo](https://raw.githubusercontent.com/zekinah/pandemiccovid-19/master/public/img/preview.png)
@@ -56,6 +59,6 @@ Feel free to fork this repo. If you do, please add attribution or just give me p
 https://github.com/zekinah/pandemiccovid-19
 
 ## 👨‍💻 Author
-* **Zekinah Lecaros** - *Initial work* - [Zekinah Lecaros](https://zekinahlecaros.com/)
+* **[Zekinah Lecaros](https://zekinahlecaros.com/)** - *Initial work* - 
 
 <a href="https://www.buymeacoffee.com/zekinah" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee" height="41" width="174"></a>

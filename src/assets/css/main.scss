@@ -256,15 +256,31 @@ p.shrink img {
 }
 .popup-main {
     font-family: $primaryfont;
+}  
+.popup-main .popup__image {
+    background-color: unset;
+    transition: all 0.25s cubic-bezier(0.61, 1.01, 1, 1) 0s;
 }
+.popup-main:hover .popup__image img {
+    outline: unset;
+    mix-blend-mode: unset;
+    filter: unset;
+    transition: all 0.25s cubic-bezier(0.61, 1.01, 1, 1) 0s;
+}  
 .popup-main .popup__image {
     text-align: center;
+    background-color: #81abae;
 }
 .popup-main .popup__image img {
     outline: 100px solid rgba(2, 205, 169, 0.30);
     outline-offset: -100px;
     overflow: hidden;
+    mix-blend-mode: multiply;
+    filter: grayscale(80%) contrast(1) brightness(90%);
+    margin: 0 0 -5px 0;
 }
+
+
 .popup-main .popup__content .title {
     margin: auto;
     margin-bottom: 10px;

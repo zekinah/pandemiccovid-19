@@ -23,7 +23,6 @@
     "vue-countup-v2": "^4.0.0",
     "vue-meta": "^2.4.0",
     "vue-router": "^3.4.3",
-    "vue-select": "^3.11.2",
     "vue2-leaflet": "^2.5.2"
   },
   "devDependencies": {

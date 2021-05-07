@@ -111,7 +111,8 @@ export default {
     recovered: 0,
     deaths: 0,
     carddata: {},
-    todaydata: {}
+    todaydata: {},
+    options: ["foo", "bar", "baz"]
   }),
   created() {
     this.getAll();

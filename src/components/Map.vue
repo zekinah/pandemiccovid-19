@@ -8,7 +8,7 @@
           :zoom="zoom"
           :center="center"
         >
-          <l-tile-layer :url="tileLayerUrl"></l-tile-layer>
+          <l-tile-layer :url="tileDarkLayerUrl"></l-tile-layer>
           <l-circle-marker
             v-for="l in casesbycountry"
             :key="l.countryInfo._id"
@@ -71,7 +71,7 @@ export default {
   name: "MapLeaflet",
   props: ["data"],
   data: () => ({
-    tileLayerUrl:
+    tileDarkLayerUrl:
       "https://cartocdn_{s}.global.ssl.fastly.net/base-midnight/{z}/{x}/{y}.png",
     tileLightLayerUrl:
       "https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png",

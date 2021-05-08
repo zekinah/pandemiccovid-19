@@ -75,6 +75,14 @@ body.light-mode .table {
 body.light-mode .content table thead td, body.light-mode .content table thead th {
     color: $primarycolorklight;
 }
+body.light-mode .popup-main .popup__image img {
+    outline-offset: -100px;
+    overflow: hidden;
+    margin: 0 0 -5px 0;
+    outline: unset;
+    mix-blend-mode: unset;
+    filter: unset;
+}
 body.light-mode .table.is-hoverable tbody tr:not(.is-selected):hover {
     background-color: #4c51f747;
 }
@@ -279,8 +287,6 @@ p.shrink img {
     filter: grayscale(80%) contrast(1) brightness(90%);
     margin: 0 0 -5px 0;
 }
-
-
 .popup-main .popup__content .title {
     margin: auto;
     margin-bottom: 10px;

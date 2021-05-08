@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-    <!-- <dntoogle /> -->
     <div class="switch-wrapper">
       <div class="toggle-wrapper">
         <input id="switch" type="checkbox" checked @click="toggle" />
@@ -13,7 +12,6 @@
 </template>
 
 <script>
-// import dntoogle from "./components/Dntoogle.vue";
 import About from "./components/About.vue";
 export default {
   name: "app",
@@ -40,7 +38,6 @@ export default {
     }
   },
   components: {
-    // dntoogle,
     About
   },
   metaInfo() {

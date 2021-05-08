@@ -8,7 +8,7 @@
           :zoom="zoom"
           :center="center"
         >
-          <l-tile-layer :url="tileDarkLayerUrl"></l-tile-layer>
+          <l-tile-layer :url="tileLayerUrl"></l-tile-layer>
           <l-circle-marker
             v-for="l in casesbycountry"
             :key="l.countryInfo._id"
@@ -66,10 +66,13 @@
 import api from "@/Api";
 import { LMap, LTileLayer, LCircleMarker, LPopup } from "vue2-leaflet";
 import ICountUp from "vue-countup-v2";
+
 export default {
   name: "MapLeaflet",
-  props: ["data"],
+  props: ["data", "theme"],
   data: () => ({
+    tileLayerUrl:
+      "https://cartocdn_{s}.global.ssl.fastly.net/base-midnight/{z}/{x}/{y}.png",
     tileDarkLayerUrl:
       "https://cartocdn_{s}.global.ssl.fastly.net/base-midnight/{z}/{x}/{y}.png",
     tileLightLayerUrl:
@@ -110,6 +113,9 @@ export default {
           duration: 2
         }
       );
+    },
+    theme(val) {
+      this.tileLayerUrl = val ? this.tileDarkLayerUrl : this.tileLightLayerUrl;
     }
   },
   components: {

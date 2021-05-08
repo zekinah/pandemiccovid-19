@@ -1,18 +1,46 @@
 <template>
   <div id="app">
-    <dntoogle />
+    <!-- <dntoogle /> -->
+    <div class="switch-wrapper">
+      <div class="toggle-wrapper">
+        <input id="switch" type="checkbox" checked @click="toggle" />
+        <label for="switch" id="toggle">Toggle</label>
+      </div>
+    </div>
     <About />
-    <router-view />
+    <router-view :dark="dark" />
   </div>
 </template>
 
 <script>
-import dntoogle from "./components/Dntoogle.vue";
+// import dntoogle from "./components/Dntoogle.vue";
 import About from "./components/About.vue";
 export default {
   name: "app",
+  data: () => ({
+    dark: true
+  }),
+  methods: {
+    toggle() {
+      if (this.dark) {
+        this.dark = false;
+        this.setlightMode();
+      } else {
+        this.dark = true;
+        this.setdarkMode();
+      }
+    },
+    setlightMode() {
+      document.querySelector("body").classList.add("light-mode");
+      this.darkMode = false;
+    },
+    setdarkMode() {
+      document.querySelector("body").classList.remove("light-mode");
+      this.darkMode = true;
+    }
+  },
   components: {
-    dntoogle,
+    // dntoogle,
     About
   },
   metaInfo() {

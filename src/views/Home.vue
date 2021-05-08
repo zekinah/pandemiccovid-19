@@ -34,7 +34,7 @@
       :recovered="recovered"
       :deaths="deaths"
     />
-    <Map :data="country" />
+    <Map :data="country" :theme="dark" />
     <TodayCases :data="todaydata" />
     <div id="visual">
       <div class="visual__container container">
@@ -89,6 +89,7 @@ import ICountUp from "vue-countup-v2";
 
 export default {
   name: "Home",
+  props: ["dark"],
   data: () => ({
     selectall: {
       countryInfo: {
@@ -111,8 +112,7 @@ export default {
     recovered: 0,
     deaths: 0,
     carddata: {},
-    todaydata: {},
-    options: ["foo", "bar", "baz"]
+    todaydata: {}
   }),
   created() {
     this.getAll();

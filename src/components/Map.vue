@@ -66,7 +66,6 @@
 import api from "@/Api";
 import { LMap, LTileLayer, LCircleMarker, LPopup } from "vue2-leaflet";
 import ICountUp from "vue-countup-v2";
-
 export default {
   name: "MapLeaflet",
   props: ["data"],

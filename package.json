@@ -26,11 +26,11 @@
     "vue2-leaflet": "^2.7.1"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "~4.4.0",
-    "@vue/cli-plugin-eslint": "~4.4.0",
-    "@vue/cli-plugin-pwa": "~4.4.0",
+    "@vue/cli-plugin-babel": "~5.0.8",
+    "@vue/cli-plugin-eslint": "~5.0.8",
+    "@vue/cli-plugin-pwa": "~5.0.8",
     "@vue/cli-plugin-router": "~4.4.0",
-    "@vue/cli-service": "^4.5.19",
+    "@vue/cli-service": "^5.0.8",
     "@vue/eslint-config-prettier": "^6.0.0",
     "babel-eslint": "^10.1.0",
     "eslint": "^6.7.2",
@@ -39,9 +39,9 @@
     "lint-staged": "^9.5.0",
     "prettier": "^1.19.1",
     "sass": "^1.53.0",
-    "sass-loader": "^8.0.2",
+    "sass-loader": "^13.2.0",
     "vue-template-compiler": "^2.7.6",
-    "webpack": "^4.46.0"
+    "webpack": "^5.75.0"
   },
   "eslintConfig": {
     "root": true,
